@@ -1,0 +1,36 @@
+ /* body{
+   text-align: center;
+   
+   background-color: grey;
+   padding-left: 35%;
+   
+   
+} */
+form{
+   /* background-color: rgb(33, 40, 42); */
+   width: 35%;
+   border-radius: 15px;
+}
+/* }
+img{
+   width: 155px;
+   margin-top: 10px;
+}
+button{
+   margin-top: 15px;
+   margin-bottom: 15px;
+   border-radius: 8px;
+   padding: 2px;
+   padding-inline: 15px;
+
+}
+label{
+   color: white;
+}
+input{
+   border-radius: 8px;
+}
+button:hover{
+   background-color: rgb(86, 51, 51);
+   color: white;
+} */ 
