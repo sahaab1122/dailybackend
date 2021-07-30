@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ProductsPage from '../screen/ProductsPage';
 import CategoriesPage from '../screen/CategoriesPage';
-import OrdersPage from '../screen/OrdersPage';
+// import OrdersPage from '../screen/OrdersPage';
 import UsersPage from '../screen/UsersPage';
 import Login from '../screen/Login';
 import App from '../App';
@@ -28,7 +28,7 @@ class Routes extends React.Component {
               <Route exact path="/" component={App} />
               <Route path='/products' component={ProductsPage} /> 
               <Route path='/catogaries' component={CategoriesPage} />
-              <Route path='/order' component={OrdersPage} />
+              {/* <Route path='/order' component={OrdersPage} /> */}
               <Route path='/user' component={UsersPage} />
               <Route path='/UpdateProduct' component={UpdateProduct} />
               <Route path='/AddCategory' component={AddCategory} />

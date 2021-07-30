@@ -41,8 +41,8 @@ getuser = async (e) => {
 // }
 
   render(){
-    console.log(this.props.users)
-    alert(this.props.users)
+    // console.log(this.props.users)
+    // alert(this.props.users)
   return(
     <div className = "flexible-content" >
         <SideNavigation />

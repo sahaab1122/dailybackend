@@ -63,11 +63,12 @@ class Addproduct extends React.Component {
 
     }
     addProduct = async (e) => {
-
+        
         let param = {
             "name": this.state.name,
 
             "categoryID": this.state.categoryID,
+            "subcategories":this.state.subcategories,
             "description": this.state.description,
             "price": this.state.price,
             "image": this.state.image,
@@ -92,7 +93,7 @@ class Addproduct extends React.Component {
     render() {
 
 
-        console.log(this.props.categories)
+        console.log(this.state.subcategories)
 
 
 
@@ -119,18 +120,7 @@ class Addproduct extends React.Component {
                                         <div class="col-md-12">
                                             <input type="hidden" name="_token" value="hrxeTL0t5hnBVb8Q3Q4vTc42CXU88qyd320Luzkv"></input>
                                             <div className="row">
-                                                <div class="form-group col-md-6">
-                                                    <label>Product Name</label>
-                                                    <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
-
-
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label>Price</label>
-                                                    <input type="text" name="name" placeholder="69$" required class="form-control" onChange={(e) => this.setState({ price: e.target.value })}></input>
-
-
-                                                </div>
+                                       
                                                 {/* <div class="form-group col-md-6">
                                                     <label>Product ID</label>
                                                     <input type="text" name="name" placeholder="0122" required class="form-control"></input>
@@ -139,37 +129,15 @@ class Addproduct extends React.Component {
                                                 </div> */}
                                                 <div className="dropdown form-group col-md-6">
 
-                                                    <label>Categories</label>
-                                                    <select className="form-control" value={this.state.categoryID} onChange={(e) => this.setState({ categoryID: e.target.value, subCategory: this.getSubCategory(e.target.value) })}>
-                                                        {
-                                                            this.props.categories.map((item, index) => (
-                                                                <option value={item.name} key={index} >{item.name}</option>
-                                                            ))
-                                                        }
-
-                                                    </select>
+                     
                                                 </div>
                                                 <div class="form-group col-md-12">
-                                                    <label>Subcategories</label>
-                                                    <select className="form-control" onChange={this.Changetechnology} onChange={(e) => this.setState({ subcategories: e.target.value })}>
-                                                        {
-                                                            this.state.subCategory.map((item, index) => (
-                                                                <option value={item} key={index} >{item}</option>
-                                                            ))
-                                                        }
-
-                                                    </select>
+                                                   
 
                                                 </div>
 
                                             </div>
-                                            <div className='row'>
-                                                <div class="form-group col-md-12">
-                                                    <label>Description</label>
-                                                    <textarea name="description" required class="form-control" onChange={(e) => this.setState({ description: e.target.value })} cols="6" rows="6"></textarea>
-                                                </div>
-
-                                            </div>
+                                           
                                             <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input type="file" onChange={this.pickImage} />

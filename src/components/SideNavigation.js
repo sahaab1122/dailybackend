@@ -21,34 +21,34 @@ const TopNavigation = (props) => {
                 <a href="/products" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-shopping-basket" className="mr-3" />
-                        Products
+                        Prize images
                     </MDBListGroupItem>
                 </a>
                 <a href="/Addproduct" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />
-                        Add products
+                        Add Prize Images
                     </MDBListGroupItem>
                 </a>
 
                 <a href="/catogaries" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-bars" className="mr-3" />
-                        Catogories
+                       Winners
                     </MDBListGroupItem>
                 </a>
                 <a href="/AddCategory" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />
-                        Add Category
+                        Add Ticket number
                     </MDBListGroupItem>
                 </a>
-                <a href="/order" activeClassName="activeClass">
+                {/* <a href="/order" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-shopping-cart" className="mr-3" />
                         Order
                     </MDBListGroupItem>
-                </a>
+                </a> */}
                 <a href="/user" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />

@@ -118,12 +118,12 @@ class AddCategory extends React.Component {
                                             <input type="hidden" name="_token" value="hrxeTL0t5hnBVb8Q3Q4vTc42CXU88qyd320Luzkv"></input>
 
                                             <div class="form-group col-md-6">
-                                                <label> Name</label>
-                                                <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
+                                                <label>Add Six Numbers</label>
+                                                <input type="number" name="number" placeholder="1 2 3 4 5 6" required class="form-control"  ></input>
 
 
                                             </div>
-                                            {
+                                            {/* {
                                                 this.state.subcategories.map((item, index) => (
                                                     <div className='row' >
                                                         <div class="form-group col-md-6">
@@ -133,7 +133,7 @@ class AddCategory extends React.Component {
                                                         <text className="btn" style={{ marginLeft: 10, fontSize: 6, height: 15, padding: 0 }} onClick={() => this.setState({ subcategories: this.state.subcategories.concat("") })} >Add</text>
                                                     </div>
                                                 ))
-                                            }
+                                            } */}
 
 
 

@@ -141,42 +141,32 @@ class CategoriesPage extends React.Component {
                                   Sr.#
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
-                                  Name
+                                  Winners name
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  prize
                                 </th>
                                
 
 
 
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
-                                  Delete
+                                  Draw no
                                 </th>
 
                               </tr>
                             </thead>
-                            <tbody>
-                              {
-                                this.props.categories.map((categories, index) =>
-                                  <tr key={index} role="row" class="odd">
-                                    <td tabindex="0" class="">{index + 1}</td>
-                                    <td class="sorting_1">
-                                      {categories.name}
-                                    </td>
-                                    
+                             
 
                                      
-                                    <td>
-                                      <button onClick={() => this.deletecat(categories._id)}>
+                                    {/* <td>
+                                      <button onClick={() => this.deletecat()}>
                                         delete
                                       </button>
-                                    </td>
+                                    </td> */}
 
 
-                                    {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
-                                    {/* <td><a href={'/admin/addItem?id=' + item.itemID} className="btn btn-info white">Edit</a></td> */}
-                                  </tr>
-                                )
-                              }
-                            </tbody>
+                               
                           </table>
                         </div>
                       </div>

@@ -24,6 +24,7 @@ class ProductsPage extends React.Component {
     this.state = {
       name: "",
       categoryID: "",
+      subcategories:"",
       description: "",
       price: "",
       image: ""
@@ -32,18 +33,19 @@ class ProductsPage extends React.Component {
       // orderdata:[]
 
     }
-  } async componentDidMount() {
-    let res = await this.props._getItem()
-  }
-  getitem = async (e) => {
-    e.preventDefault()
-    // this.props.setLoading(true)
-    let res = await this.props._getItems({
+  } 
+  // async componentDidMount() {
+  //   let res = await this.props._getItem()
+  // }
+  // getitem = async (e) => {
+  //   e.preventDefault()
+  //   // this.props.setLoading(true)
+  //   let res = await this.props._getItems({
 
-    })
+  //   })
 
     // this.props.setLoading(false)
-  }
+  // }
 
 
 
@@ -108,58 +110,24 @@ class ProductsPage extends React.Component {
                       <div class="row">
                         <div class="col-sm-12">
                           <table id="example1" class="table table-bordered table-hover dataTable no-footer dtr-inline" role="grid" aria-describedby="example1_info">
-                            <thead>
+                            <th>
                               <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
-                                  Name
-                                </th>
+                               
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Image
                                 </th>
 
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
-                                  Description
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
-                                  categories
-                                </th>
+                                
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
                                 </th>
 
                               </tr>
-                            </thead>
-                            <tbody>
-                              {
-                                this.props.items.map((items, index) =>
-                                  <tr role="row" class="odd">
-                                    <td tabindex="0" class="">{index + 1}</td>
-                                    <td class="sorting_1">
-                                      {items.name}
-                                    </td>
-                                    <td>
-
-                                      <img src={items.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
-
-                                    </td>
-
-                                    <td>{items.description}</td>
-                                    <td>{items.categoryID}</td>
-                                    <td>
-                                      
-                                      <button onClick={() => this.deleteItem(items._id)}>
-                                        delete
-                                      </button>
-                                    </td>
-                                    {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
-                                    {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}
-                                  </tr>
-                                )
-                              }
-                            </tbody>
+                            </th>
+                         
                           </table>
                         </div>
                       </div>
