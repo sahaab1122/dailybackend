@@ -7,11 +7,11 @@ import '../styles/index.css'
 // import ResponsiveDrawer from './ResponsiveDrawer'
 // import { connect } from "react-redux";
 // import ConfirmModal from '../components/ConfirmModal'
-// import { _getCategories } from '../Store/middlewares/appMiddleware'
+// import { _getPrizes } from '../Store/middlewares/appMiddleware'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _deleteCategories, _getCategories } from "../store/middlewares/appMiddleware";
+import { _deleteCategories, _getPrizes } from "../store/middlewares/appMiddleware";
 import api from "../api/api";
 import path from "../api/path";
 
@@ -31,12 +31,12 @@ class CategoriesPage extends React.Component {
 
     }
   } async componentDidMount() {
-    let res = await this.props._getCategories()
+    let res = await this.props._getPrizes()
   }
   getcategorie = async (e) => {
     e.preventDefault()
     // this.props.setLoading(true)
-    let res = await this.props._getCategories({
+    let res = await this.props._getPrizes({
 
     })
     if (res.success === true) {
@@ -93,7 +93,7 @@ class CategoriesPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.categories)
+    console.log(this.props.prizes)
     // alert(this.props.items)
     return (
       <div className="flexible-content" >
@@ -198,7 +198,7 @@ const mapState = state => {
   return {
     logged: state.authReducer.logged,
     // user: state.authReducer.user,
-    categories: state.appReducer.categories,
+    prizes: state.appReducer.prizes,
 
   }
 }
@@ -206,7 +206,7 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getCategories: () => dispatch(_getCategories()),
+    _getPrizes: () => dispatch(_getPrizes()),
     _deleteCategories: () => dispatch(_deleteCategories())
 
 

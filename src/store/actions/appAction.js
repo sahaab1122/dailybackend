@@ -1,8 +1,8 @@
-import { SET_CATEGORIES, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS } from "./Types";
+import { SET_PRIZES, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS } from "./Types";
 
-export const set_categories = (payload) => (
+export const set_prizes = (payload) => (
     {
-        type: SET_CATEGORIES,
+        type: SET_PRIZES,
         payload
     }
 )

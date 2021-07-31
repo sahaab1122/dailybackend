@@ -2,7 +2,7 @@
 // import { setError, setLoading } from '../actions/globalActions'
 import api from '../../api/api';
 import path from '../../api/path';
-import { set_items, set_categories, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appAction'
+import { set_items, set_prizes, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appAction'
 
 
 export const _getFeatured = () => {
@@ -79,14 +79,14 @@ export const _deleteCategories = () => {
         }
     }
 }
-export const _getCategories = () => {
+export const _getPrizes = () => {
 
     return async (dispatch, getState) => {
 
 
-        let res = await api(path.getcategories, "GET",);
+        let res = await api(path.getprizes, "GET",);
         if (res) {
-            dispatch(set_categories(res.result))
+            dispatch(set_prizes(res.result))
         }
     }
 } 

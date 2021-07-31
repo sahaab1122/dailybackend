@@ -11,7 +11,7 @@ import '../styles/index.css'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _deleteItems, _getItems } from "../store/middlewares/appMiddleware";
+import { _deleteItems, _getItems, _getPrizes } from "../store/middlewares/appMiddleware";
 import { Button } from "react-bootstrap";
 import { _deleteitem } from "../store/middlewares/authMiddleware";
 import api from "../api/api";
@@ -22,32 +22,27 @@ class ProductsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      categoryID: "",
-      subcategories:"",
-      description: "",
-      price: "",
+      
       image: ""
       // deleteID: '',
       // showModal: false,
       // orderdata:[]
 
-    }
-  } 
-  // async componentDidMount() {
-  //   let res = await this.props._getItem()
-  // }
-  // getitem = async (e) => {
-  //   e.preventDefault()
-  //   // this.props.setLoading(true)
-  //   let res = await this.props._getItems({
 
-  //   })
+    }
+  } async componentDidMount() {
+    let res = await this.props._getPrizes()
+    console.log(res,'res............')
+  }
+  getprizes = async (e) => {
+    e.preventDefault()
+    // this.props.setLoading(true)
+    let res = await this.props._getPrizes({
+
+    })
 
     // this.props.setLoading(false)
-  // }
-
-
+  }
 
 
   deleteItem = async (_id) => {
@@ -65,11 +60,11 @@ class ProductsPage extends React.Component {
 
 
 
-  
+
 
   render() {
-    console.log(this.props.items)
-    // alert(this.props.items)
+    // console.log(this.props.prize)
+    // alert(this.props.prize)
     return (
       <div className="flexible-content" >
         <SideNavigation />
@@ -110,24 +105,45 @@ class ProductsPage extends React.Component {
                       <div class="row">
                         <div class="col-sm-12">
                           <table id="example1" class="table table-bordered table-hover dataTable no-footer dtr-inline" role="grid" aria-describedby="example1_info">
-                            <th>
+                            <thead>
                               <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
                                 </th>
-                               
+                             
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Image
                                 </th>
 
-                                
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
-                                  Delete
-                                </th>
-
+                             
                               </tr>
-                            </th>
-                         
+                            </thead>
+                            <tbody>
+                              {
+                                this.props.prizes.map((prize, index) =>
+                                  <tr role="row" class="odd">
+                                    <td tabindex="0" class="">{index + 1}</td>
+                                    
+                                    <td>
+
+                                      <img src={prize.image[0] || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
+
+                                    </td>
+
+                                     
+
+                                    <td>
+
+                                      <button  >
+                                        delete
+                                      </button>
+                                    </td>
+                                    {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
+                                    {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}
+                                  </tr>
+                                )
+                              }
+                            </tbody>
                           </table>
                         </div>
                       </div>
@@ -145,10 +161,10 @@ class ProductsPage extends React.Component {
 
             {/* {
 
-              this.state.showModal &&
-              <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
-                onDoClick={this.deleteHandler} />
-            } */}
+      this.state.showModal &&
+      <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
+        onDoClick={this.deleteHandler} />
+    } */}
 
           </div>
         </main>
@@ -163,7 +179,7 @@ const mapState = state => {
   return {
     logged: state.authReducer.logged,
     // user: state.authReducer.user,
-    items: state.appReducer.items,
+    prizes: state.appReducer.prizes,
 
   }
 }
@@ -171,8 +187,8 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getItem: () => dispatch(_getItems()),
-    _deleteItem: () => dispatch(_deleteItems())
+    _getPrizes: () => dispatch(_getPrizes()),
+    // _deleteItem: () => dispatch(_deleteItems())
 
 
   }
