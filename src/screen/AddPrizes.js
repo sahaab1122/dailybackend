@@ -18,7 +18,7 @@ import api from "../api/api";
 import path from "../api/path";
 import {   _getPrizes } from "../store/middlewares/appMiddleware";
 
-class Addproduct extends React.Component {
+class AddPrizes extends React.Component {
     constructor() {
         super();
 
@@ -136,4 +136,4 @@ const mapDispatch = dispatch => {
     }
 }
 
-export default connect(mapState, mapDispatch)(Addproduct)
+export default connect(mapState, mapDispatch)(AddPrizes)

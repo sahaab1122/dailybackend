@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ProductsPage from '../screen/ProductsPage';
-import CategoriesPage from '../screen/CategoriesPage';
+// import ProductsPage from '../screen/PrizeImages';
+import Winner from '../screen/Winner';
 // import OrdersPage from '../screen/OrdersPage';
 import UsersPage from '../screen/UsersPage';
 import Login from '../screen/Login';
 import App from '../App';
 import { connect } from 'react-redux';
-import path from '../api/path';
-import AddCategory from '../screen/AddCategory';
-import Addproduct from '../screen/Addproduct';
-import UpdateProduct from '../screen/UpdateProduct';
+// import path from '../api/path';
+import AddTicketNumber from '../screen/AddTicketNumber';
+import AddPrizes from '../screen/AddPrizes';
+import PrizeImages from '../screen/PrizeImages';
+// import UpdateProduct from '../screen/UpdateProduct';
 
 
 
@@ -26,13 +27,13 @@ class Routes extends React.Component {
             :
             <>
               <Route exact path="/" component={App} />
-              <Route path='/products' component={ProductsPage} /> 
-              <Route path='/catogaries' component={CategoriesPage} />
+              <Route path='/PrizeImages' component={PrizeImages} /> 
+              <Route path='/winner' component={Winner} />
               {/* <Route path='/order' component={OrdersPage} /> */}
               <Route path='/user' component={UsersPage} />
-              <Route path='/UpdateProduct' component={UpdateProduct} />
-              <Route path='/AddCategory' component={AddCategory} />
-              <Route path='/Addproduct' component={Addproduct} />
+              {/* <Route path='/UpdateProduct' component={UpdateProduct} /> */}
+              <Route path='/AddTicketNumber' component={AddTicketNumber} />
+              <Route path='/AddPrizes' component={AddPrizes} />
             </>
         }
 

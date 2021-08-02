@@ -7,43 +7,79 @@ import '../styles/index.css'
 // import ResponsiveDrawer from './ResponsiveDrawer'
 // import { connect } from "react-redux";
 // import ConfirmModal from '../components/ConfirmModal'
-// import { _getCategories } from '../Store/middlewares/appMiddleware'
+// import { _getPrizes } from '../Store/middlewares/appMiddleware'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _deleteItems, _getItems, _getPrizes } from "../store/middlewares/appMiddleware";
-import { Button } from "react-bootstrap";
-import { _deleteitem } from "../store/middlewares/authMiddleware";
+import { _deleteCategories, _getPrizes } from "../store/middlewares/appMiddleware";
 import api from "../api/api";
 import path from "../api/path";
 
-class ProductsPage extends React.Component {
+class Winner extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      
+      name: "",
+      categoryID: "",
+      description: "",
+      price: "",
       image: ""
       // deleteID: '',
       // showModal: false,
       // orderdata:[]
 
-
     }
   } async componentDidMount() {
     let res = await this.props._getPrizes()
-    console.log(res,'res............')
   }
-  getprizes = async (e) => {
+  getcategorie = async (e) => {
     e.preventDefault()
     // this.props.setLoading(true)
     let res = await this.props._getPrizes({
 
     })
+    if (res.success === true) {
+      // window.location ="App"
 
-    // this.props.setLoading(false)
+      // if (this.props.admin) {
+      //     this.props.admin()
+      // }
+      // else {
+      //     window.history.back()
+
+      // }
+    }
   }
+    // this.props.setLoading(false)
 
+    deletecat = async (_id) => {
+      // alert(path.deleteitem+_id)
+      console.log("delting categories")
+      api(path.deletecat + '/' + _id, "DELETE").then(res => {
+        console.log(res)
+        alert("Categories Delete")
+      })
+    }
+  
+  // async componentDidMount(){
+  //     console.log(this.props);
+
+  //     let res = await api.getCategory();
+  //     console.log(res.result);
+  //     this.setState({orderdata:res.result})
+  // }
+
+
+  // deleteHandler = async () => {
+  //     console.log(this.state.deleteID)
+  //     this.setState({ showModal: false })
+  //     let res = await api.deleteCategory( this.state.deleteID)
+  //     if (res) {
+  //         window.location.reload();
+
+  //     }
+  // }
 
   deleteItem = async (_id) => {
     // alert(path.deleteitem+_id)
@@ -56,15 +92,9 @@ class ProductsPage extends React.Component {
     // alert(_id)
   }
 
-
-
-
-
-
-
   render() {
-    // console.log(this.props.prize)
-    // alert(this.props.prize)
+    console.log(this.props.prizes)
+    // alert(this.props.items)
     return (
       <div className="flexible-content" >
         <SideNavigation />
@@ -110,40 +140,33 @@ class ProductsPage extends React.Component {
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
                                 </th>
-                             
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
-                                  Image
+                                  Winners name
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  prize
+                                </th>
+                               
+
+
+
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
+                                  Draw no
                                 </th>
 
-                             
                               </tr>
                             </thead>
-                            <tbody>
-                              {
-                                this.props.prizes.map((prize, index) =>
-                                  <tr role="row" class="odd">
-                                    <td tabindex="0" class="">{index + 1}</td>
-                                    
-                                    <td>
-
-                                      <img src={prize.image[0] || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
-
-                                    </td>
+                             
 
                                      
-
-                                    <td>
-
-                                      <button  >
+                                    {/* <td>
+                                      <button onClick={() => this.deletecat()}>
                                         delete
                                       </button>
-                                    </td>
-                                    {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
-                                    {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}
-                                  </tr>
-                                )
-                              }
-                            </tbody>
+                                    </td> */}
+
+
+                               
                           </table>
                         </div>
                       </div>
@@ -156,15 +179,11 @@ class ProductsPage extends React.Component {
                   </div>
                 </div></div>
             </section>
-
-
-
             {/* {
-
-      this.state.showModal &&
-      <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
-        onDoClick={this.deleteHandler} />
-    } */}
+              this.state.showModal &&
+              <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
+                onDoClick={this.deleteHandler} />
+            } */}
 
           </div>
         </main>
@@ -188,9 +207,9 @@ const mapDispatch = dispatch => {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
     _getPrizes: () => dispatch(_getPrizes()),
-    // _deleteItem: () => dispatch(_deleteItems())
+    _deleteCategories: () => dispatch(_deleteCategories())
 
 
   }
 }
-export default connect(mapState, mapDispatch)(ProductsPage)
+export default connect(mapState, mapDispatch)(Winner)

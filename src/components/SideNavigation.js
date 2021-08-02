@@ -18,26 +18,26 @@ const TopNavigation = (props) => {
                 <img alt="Grocery Cart" className="img-fluid" src={logo} />
             </a>
             <MDBListGroup className="list-group-flush">
-                <a href="/products" activeClassName="activeClass">
+                <a href="/PrizeImages" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-shopping-basket" className="mr-3" />
                         Prize images
                     </MDBListGroupItem>
                 </a>
-                <a href="/Addproduct" activeClassName="activeClass">
+                <a href="/AddPrizes" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />
                         Add Prize Images
                     </MDBListGroupItem>
                 </a>
 
-                <a href="/catogaries" activeClassName="activeClass">
+                <a href="/Winner" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-bars" className="mr-3" />
                        Winners
                     </MDBListGroupItem>
                 </a>
-                <a href="/AddCategory" activeClassName="activeClass">
+                <a href="/AddTicketNumber" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />
                         Add Ticket number

@@ -86,10 +86,10 @@ getuser = async (e) => {
                                                         <th className='center' rowspan="1" colspan="1"  >No.</th>
                                                         <th className='center' rowspan="1" colspan="1"  >Image</th>
                                                         <th className='center' rowspan="1" colspan="1"  >Email</th>
-                                                        <th className='center' rowspan="1" colspan="1"  >City</th>
+                                                        {/* <th className='center' rowspan="1" colspan="1"  >City</th> */}
                                                         <th className='center' rowspan="1" colspan="1"  >phone</th>
-                                                        <th className='center' rowspan="1" colspan="1"  >First Name</th>
-                                                        <th className='center' rowspan="1" colspan="1"  >Last Name</th>
+                                                        {/* <th className='center' rowspan="1" colspan="1"  >First Name</th>
+                                                        <th className='center' rowspan="1" colspan="1"  >Last Name</th> */}
                                                         {/* <th className='center' rowspan="1" colspan="1"  >Age</th> */}
                                                         {/* <th className='center' rowspan="1" colspan="1"  >Date</th> */}
                                                         {/* <th className='center' rowspan="1" colspan="1"  >Date</th> */}
@@ -103,10 +103,9 @@ getuser = async (e) => {
                                                                 <td className='center' class="sorting_1">{index + 1}</td>
                                                                 <td className='center' style={{ textAlign: 'center' }}><img style={{ width: 100 }} src={users.avatar} alt='noIamge' /></td>
                                                                 <td className='center'>{users.email}</td>
-                                                                <td className='center'>{users.city}</td>
+                                                                 
                                                                 <td className='center'>{users.phone}</td>
-                                                                <td className='center'>{users.firstName}</td>
-                                                                <td className='center'>{users.lastName}</td>
+                                                            
                                                                
                                                                 {/* <td className='center'>{u.creationDate.slice(0, 15)}</td> */}
                                                                </tr>

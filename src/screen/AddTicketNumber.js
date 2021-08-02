@@ -6,7 +6,7 @@ import '../styles/responsive.bootstrap4.min.css'
 import '../styles/index.css'
 // import ResponsiveDrawer from './ResponsiveDrawer'
 // import { Alert } from '@material-ui/lab';
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 // import { set_loading } from "../Store/actions/globalActions";
 import firebase from "firebase"
 // import api from "../services/api";
@@ -17,7 +17,7 @@ import SideNavigation from '../components/SideNavigation'
 import api from "../api/api";
 import path from "../api/path";
 
-class AddCategory extends React.Component {
+class AddTicketNumber extends React.Component {
     constructor() {
         super();
 
@@ -175,4 +175,4 @@ class AddCategory extends React.Component {
 //     }
 // }
 
-export default AddCategory
+export default AddTicketNumber
