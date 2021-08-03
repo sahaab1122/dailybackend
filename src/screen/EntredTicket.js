@@ -3,27 +3,29 @@ import { MDBRow, MDBCol, MDBView, MDBCard, MDBCardBody, MDBTable, MDBTableHead, 
 import SideNavigation from '../components/SideNavigation'
 import { connect } from 'react-redux';
 import api from '../api/api'
-import { _getUsers } from '../store/middlewares/appMiddleware';
+import { _getTickets, _getUsers } from '../store/middlewares/appMiddleware';
 
-class UsersPage extends React.Component {
-  constructor() {
-    super();
+class EntredTicket extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-        name: '',
-        email: ' ',
-        phone: '',
+        user: '',
+        ticket: ' ',
+    
 
     }
 }
 async componentDidMount(){
-   let res = await this.props._getUser()
+   let res = await this.props._getTickets()
+//    console.log(this.props._getTickets)
 }
 getuser = async (e) => {
   e.preventDefault()
   // this.props.setLoading(true)
-  let res = await this.props._getUsers({
-     
+  let res = await this.props._getTickets({
+    
       } )
+     
   
   // this.props.setLoading(false)
 }
@@ -41,7 +43,7 @@ getuser = async (e) => {
 // }
 
   render(){
-    // console.log(this.props.users)
+    console.log(this.props.tickets)
     // alert(this.props.users)
   return(
     <div className = "flexible-content" >
@@ -84,44 +86,48 @@ getuser = async (e) => {
                                                 <thead>
                                                     <tr role="row">
                                                         <th className='center' rowspan="1" colspan="1"  >No.</th>
-                                                        {/* <th className='center' rowspan="1" colspan="1"  >Image</th> */}
-                                                        <th className='center' rowspan="1" colspan="1"  >Email</th>
-                                                        {/* <th className='center' rowspan="1" colspan="1"  >City</th> */}
+                                                        <th className='center' rowspan="1" colspan="1"  >Ticket no</th>
+                                                        <th className='center' rowspan="1" colspan="1"  >Name</th>
                                                         <th className='center' rowspan="1" colspan="1"  >phone</th>
-                                                       <th className='center' rowspan="1" colspan="1"  >User Name</th>
-                                                        <th className='center' rowspan="1" colspan="1"  >user id</th>
-                                                        {/* <th className='center' rowspan="1" colspan="1"  >Age</th> */}
+                                                        <th className='center' rowspan="1" colspan="1"  >email</th>
+                                                        {/* <th className='center' rowspan="1" colspan="1"  >First Name</th>
+                                                        <th className='center' rowspan="1" colspan="1"  >Last Name</th> */}
                                                         {/* <th className='center' rowspan="1" colspan="1"  >Date</th> */}
+                                                        <th className='center' rowspan="1" colspan="1"  >user Id</th>
                                                         {/* <th className='center' rowspan="1" colspan="1"  >Date</th> */}
                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {
-                                                        this.props.users.map((users, index) =>
+                                                        this.props.tickets.map((tickets, index) =>
                                                             <tr role="row" class="odd">
                                                                 <td className='center' class="sorting_1">{index + 1}</td>
-                                                                {/* <td className='center' style={{ textAlign: 'center' }}><img style={{ width: 100 }} src={users.avatar} alt='noIamge' /></td> */}
-                                                                <td className='center'>{users.email}</td>
-                                                                <td className='center'>{users.phone}</td>
-                                                                <td className='center'>{users.name}</td>
-                                                                {/* <td className='center'>{users.firstName}</td>
-                                                                <td className='center'>{users.lastName}</td> */}
+                                                                {/* <td className='center' style={{ textAlign: 'center' }}><img style={{ width: 100 }} src={tickets.avatar} alt='noIamge' /></td> */}
+                                                                 
+                                                                <td className='center'>{tickets.ticket}</td>
+                                                                <td className='center'>{tickets.user.name}</td>
+                                                                <td className='center'>{tickets.user.phone}</td>
+                                                                <td className='center'>{tickets.user.email}</td>
+                                                                {/* <td className='center'>{tickets.ticketDate}</td> */}
+                                                            
+                                                                <td className='center'>{tickets._id}</td>
                                                                
-                                                                <td className='center'>{users._id}</td>
+                                                                {/* <td className='center'>{u.creationDate.slice(0, 15)}</td> */}
                                                                </tr>
                                                         )   
                                                     }
                                                 </tbody>
+                                                
                                             </table>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-5">
+                                        {/* <div class="col-sm-12 col-md-5">
                                             <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
                                                 Showing 1 to 10 of {this.props.users.length} entries
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div class="col-sm-12 col-md-7">
                                             <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
                                                 <ul class="pagination">
@@ -172,7 +178,7 @@ const mapState = state => {
   return {
     logged: state.authReducer.logged,
     // user: state.authReducer.user,
-    users: state.appReducer.users,
+    tickets: state.appReducer.tickets,
 
   }
 }
@@ -180,12 +186,12 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getUser: () => dispatch(_getUsers())
+    _getTickets: () => dispatch(_getTickets())
 
 
   }
 }
-export default connect(mapState, mapDispatch)(UsersPage)
+export default connect(mapState, mapDispatch)(EntredTicket)
 
 
 

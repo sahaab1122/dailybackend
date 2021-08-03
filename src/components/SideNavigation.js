@@ -20,35 +20,35 @@ const TopNavigation = (props) => {
             <MDBListGroup className="list-group-flush">
                 <a href="/PrizeImages" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="fas fa-shopping-basket" className="mr-3" />
+                        <MDBIcon icon="award" className="mr-3" />
                         Prize images
                     </MDBListGroupItem>
                 </a>
                 <a href="/AddPrizes" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="fas fa-user-friends" className="mr-3" />
+                        <MDBIcon icon="gifts" className="mr-3" />
                         Add Prize Images
                     </MDBListGroupItem>
                 </a>
 
                 <a href="/Winner" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="fas fa-bars" className="mr-3" />
+                        <MDBIcon icon="trophy" className="mr-3" />
                        Winners
                     </MDBListGroupItem>
                 </a>
                 <a href="/AddTicketNumber" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="fas fa-user-friends" className="mr-3" />
+                        <MDBIcon icon="ticket-alt" className="mr-3" />
                         Add Ticket number
                     </MDBListGroupItem>
                 </a>
-                {/* <a href="/order" activeClassName="activeClass">
+                <a href="/EntredTicket" activeClassName="activeClass">
                     <MDBListGroupItem>
-                        <MDBIcon icon="fas fa-shopping-cart" className="mr-3" />
-                        Order
+                        <MDBIcon icon="user-check" className="mr-3" />
+                        Entred Tickets
                     </MDBListGroupItem>
-                </a> */}
+                </a>
                 <a href="/user" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-user-friends" className="mr-3" />

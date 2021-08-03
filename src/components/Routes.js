@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import AddTicketNumber from '../screen/AddTicketNumber';
 import AddPrizes from '../screen/AddPrizes';
 import PrizeImages from '../screen/PrizeImages';
+import EntredTicket from '../screen/EntredTicket';
 // import UpdateProduct from '../screen/UpdateProduct';
 
 
@@ -29,7 +30,7 @@ class Routes extends React.Component {
               <Route exact path="/" component={App} />
               <Route path='/PrizeImages' component={PrizeImages} /> 
               <Route path='/winner' component={Winner} />
-              {/* <Route path='/order' component={OrdersPage} /> */}
+              <Route path='/EntredTicket' component={EntredTicket} />
               <Route path='/user' component={UsersPage} />
               {/* <Route path='/UpdateProduct' component={UpdateProduct} /> */}
               <Route path='/AddTicketNumber' component={AddTicketNumber} />

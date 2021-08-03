@@ -11,7 +11,7 @@ import '../styles/index.css'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _deleteItems, _getItems, _getPrizes } from "../store/middlewares/appMiddleware";
+import { _deleteItems, _deletePrizes, _getItems, _getPrizes } from "../store/middlewares/appMiddleware";
 import { Button } from "react-bootstrap";
 import { _deleteitem } from "../store/middlewares/authMiddleware";
 import api from "../api/api";
@@ -22,7 +22,7 @@ class PrizeImages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
       image: ""
       // deleteID: '',
       // showModal: false,
@@ -30,30 +30,33 @@ class PrizeImages extends React.Component {
 
 
     }
-  } async componentDidMount() {
+  }
+  async componentDidMount() {
     let res = await this.props._getPrizes()
-    console.log(res,'res............')
+    console.log(res, 'res............')
   }
   getprizes = async (e) => {
     e.preventDefault()
     // this.props.setLoading(true)
     let res = await this.props._getPrizes({
 
-    })
+    }
+    )
 
     // this.props.setLoading(false)
   }
 
 
-  deleteItem = async (_id) => {
+  deletePrize = async (_id) => {
     // alert(path.deleteitem+_id)
-    console.log("delting item")
-    api(path.deleteitem + '/' + _id, "DELETE").then(res => {
+    console.log("delting prize")
+    api(path.deleteprize + '/' + _id, "DELETE").then(res => {
       console.log(res)
-      alert("ITem delete")
+      alert("prize delete")
     })
 
     // alert(_id)
+
   }
 
 
@@ -110,12 +113,12 @@ class PrizeImages extends React.Component {
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
                                 </th>
-                             
+
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Image
                                 </th>
 
-                             
+
                               </tr>
                             </thead>
                             <tbody>
@@ -123,18 +126,18 @@ class PrizeImages extends React.Component {
                                 this.props.prizes.map((prize, index) =>
                                   <tr role="row" class="odd">
                                     <td tabindex="0" class="">{index + 1}</td>
-                                    
+
                                     <td>
 
                                       <img src={prize.image[0] || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
 
                                     </td>
 
-                                     
+
 
                                     <td>
-
-                                      <button  >
+                                      
+                                      <button onClick={() => this.deletePrize(prize._id)}>
                                         delete
                                       </button>
                                     </td>
@@ -188,7 +191,7 @@ const mapDispatch = dispatch => {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
     _getPrizes: () => dispatch(_getPrizes()),
-    // _deleteItem: () => dispatch(_deleteItems())
+    _deletePrizes: () => dispatch(_deletePrizes())
 
 
   }
