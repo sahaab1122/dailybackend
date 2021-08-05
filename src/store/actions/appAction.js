@@ -1,4 +1,4 @@
-import { SET_PRIZES, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS, SET_TICKETS } from "./Types";
+import { SET_PRIZES, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS, SET_TICKETS, SET_TICKETSWINNER, SET_WINNER } from "./Types";
 
 export const set_prizes = (payload) => (
     {
@@ -32,9 +32,22 @@ export const set_user = (payload) => (
         payload
     }
 )
+export const set_winner = (payload) => (
+    {
+        type: SET_WINNER,
+        payload
+    }
+)
 export const set_ticket = (payload) => (
     {
         type: SET_TICKETS,
+        payload
+    }
+)
+
+export const set_ticketwinner = (payload) => (
+    {
+        type: SET_TICKETSWINNER,
         payload
     }
 )

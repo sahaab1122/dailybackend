@@ -5,9 +5,12 @@ let BASE_URL = 'https://windailyapp.herokuapp.com/'
 export default {
     login: BASE_URL + 'login',
     register: BASE_URL + 'register',
+    winner: BASE_URL + 'winner',
     update: BASE_URL + 'update/',
     getuser: BASE_URL + 'users',
+    getwinner: BASE_URL + 'winner',
     getticket: BASE_URL + 'tickets',
+    getticketwinner: BASE_URL + 'tickets/winner/' ,
     prizesadd: BASE_URL +'prizes/add',
     getprizes: BASE_URL + 'prizes',
     deleteprize: BASE_URL + 'deleteprizes',

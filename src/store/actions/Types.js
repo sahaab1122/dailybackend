@@ -21,7 +21,9 @@ export const SET_SOCIAL_TOKEN = 'SET_SOCIAL_TOKEN'
 
 //app
 export const SET_USERS = 'SET_USERS'
+export const SET_WINNER = 'SET_WINNER'
 export const SET_TICKETS = 'SET_TICKETS'
+export const SET_TICKETSWINNER = 'SET_TICKETSWINNER'
 export const SET_ITEMS = 'SET_ITEMS'
 export const SET_FEATURED = 'SET_FEATURED'
 export const SET_FAVOURITE = 'SET_FAVOURITE'

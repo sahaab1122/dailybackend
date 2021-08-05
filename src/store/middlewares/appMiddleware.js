@@ -2,7 +2,7 @@
 // import { setError, setLoading } from '../actions/globalActions'
 import api from '../../api/api';
 import path from '../../api/path';
-import { set_items, set_prizes, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions, set_ticket } from '../actions/appAction'
+import { set_items, set_prizes, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions, set_ticket, set_ticketwinner, set_winner } from '../actions/appAction'
 
 
 export const _getFeatured = () => {
@@ -46,6 +46,16 @@ export const _getUsers = () => {
         }
     }
 }
+export const _getWinner = () => {
+
+    return async (dispatch, getState) => {
+
+        let res = await api(path.getwinner, "GET",)
+        if (res) {
+            dispatch(set_winner(res.result))
+        }
+    }
+}
 export const _getTickets = () => {
 
     return async (dispatch, getState) => {
@@ -55,6 +65,19 @@ export const _getTickets = () => {
         if (res) {
             dispatch(set_ticket(res.result))
 
+        }
+        return false
+    }
+}
+export const _getTicketsWinner = (num) => {
+
+    return async (dispatch, getState) => {
+
+        let res = await api(path.getticketwinner + num, "GET",)
+        // console.log(res)
+        if (res) {
+            dispatch(set_ticketwinner(res.result))
+return res.result
         }
         return false
     }
