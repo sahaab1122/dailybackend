@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 
 const TopNavigation = (props) => {
 
-    const logout=()=>{
-        window.history.go(-(window.history.length-1))
+    const logout = () => {
+        window.history.go(-(window.history.length - 1))
         props.logout()
     }
 
@@ -24,6 +24,10 @@ const TopNavigation = (props) => {
                         Prize images
                     </MDBListGroupItem>
                 </a>
+                {/* <NavLink exact to="/PrizeImages" activeClassName="activeClass">
+                    FAQs
+                </NavLink> */}
+
                 <a href="/AddPrizes" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="gifts" className="mr-3" />
@@ -34,7 +38,7 @@ const TopNavigation = (props) => {
                 <a href="/Winner" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="trophy" className="mr-3" />
-                       Winners
+                        Winners
                     </MDBListGroupItem>
                 </a>
                 <a href="/AddTicketNumber" activeClassName="activeClass">
@@ -61,18 +65,18 @@ const TopNavigation = (props) => {
                 </div>
             </MDBListGroup>
         </div>
-        
+
     );
 }
 
-const mapState=()=>{
-    
+const mapState = () => {
+
 }
-const mapDispatch=(dispatch)=>{
+const mapDispatch = (dispatch) => {
     return {
-        logout:()=>dispatch(logout())
+        logout: () => dispatch(logout())
     }
 
 }
 
-export default connect(mapState,mapDispatch) (TopNavigation);
+export default connect(mapState, mapDispatch)(TopNavigation);

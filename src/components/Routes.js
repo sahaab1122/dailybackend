@@ -21,23 +21,25 @@ class Routes extends React.Component {
 
     return (
       <React.Fragment>
+        <Switch>
 
-        {
-          !this.props.logged ?
-            <Route exact path="/" component={Login} />
-            :
-            <>
-              <Route exact path="/" component={App} />
-              <Route path='/PrizeImages' component={PrizeImages} /> 
-              <Route path='/winner' component={Winner} />
-              <Route path='/EntredTicket' component={EntredTicket} />
-              <Route path='/user' component={UsersPage} />
-              {/* <Route path='/UpdateProduct' component={UpdateProduct} /> */}
-              <Route path='/AddTicketNumber' component={AddTicketNumber} />
-              <Route path='/AddPrizes' component={AddPrizes} />
-            </>
-        }
+          {
+            !this.props.logged ?
+              <Route exact path="/" component={Login} />
+              :
+              <>
 
+                <Route exact path="/" component={App} />
+                <Route path='/PrizeImages' component={PrizeImages} />
+                <Route path='/winner' component={Winner} />
+                <Route path='/EntredTicket' component={EntredTicket} />
+                <Route path='/user' component={UsersPage} />
+                {/* <Route path='/UpdateProduct' component={UpdateProduct} /> */}
+                <Route path='/AddTicketNumber' component={AddTicketNumber} />
+                <Route path='/AddPrizes' component={AddPrizes} />
+              </>
+          }
+        </Switch>
       </React.Fragment>
     );
   }

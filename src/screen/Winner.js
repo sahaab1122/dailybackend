@@ -51,7 +51,7 @@ class Winner extends React.Component {
   // }
 
   render() {
-    // console.log(this.props.winner)
+    console.log(this.props.winner)
     // alert(this.props.items)
     return (
       <div className="flexible-content" >
